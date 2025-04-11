@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import MessageBubble from './MessageBubble';
 import MessageInput from './MessageInput';
 import { sendMessage } from '../lib/api';
@@ -14,6 +14,15 @@ export default function ChatCard() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
   const [introText, setIntroText] = useState(true);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, loading]);
 
   const handleSend = async (msg: string) => {
     const newMessages: Message[] = [...messages, { sender: 'user' as const, text: msg }];
@@ -47,23 +56,28 @@ export default function ChatCard() {
       <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-[#869EFF] to-[#89BCFF] opacity-75 blur-3xl rounded-full" />
       
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col items-center justify-center p-4 relative">
+      <div className="flex-1 flex flex-col min-h-0 relative">
         {introText && (
-          <>
-            <img src="/public-health.svg" alt="logo" className="w-24 h-24 mb-6" />
-            <h2 className="text-2xl font-medium font-thin text-gray-800 mb-16">Ask our Medical AI Anything</h2>
-          </>
+          <div className="text-center pt-8">
+            <img src="/public-health.svg" alt="logo" className="w-24 h-24 mb-6 mx-auto" />
+            <h2 className="text-2xl font-medium text-gray-800 mb-16">Ask our Medical AI Anything</h2>
+          </div>
         )}
-        <div className="w-full max-w-3xl space-y-4">
-          {messages.map((msg, index) => (
-            <MessageBubble key={index} message={msg.text} sender={msg.sender} />
-          ))}
-          {loading && <MessageBubble message="Typing..." sender="assistant" />}
+        
+        {/* Scrollable Messages Container */}
+        <div className="flex-1 overflow-y-auto px-4">
+          <div className="w-full max-w-3xl mx-auto space-y-4 py-4">
+            {messages.map((msg, index) => (
+              <MessageBubble key={index} message={msg.text} sender={msg.sender} />
+            ))}
+            {loading && <MessageBubble message="Typing..." sender="assistant" />}
+            <div ref={messagesEndRef} />
+          </div>
         </div>
       </div>
 
-      {/* Bottom Section with Suggestions and Input */}
-      <div className="w-full relative">
+      {/* Bottom Section with Suggestions and Input - Fixed */}
+      <div className="w-full relative bg-transparent">
         {introText && (
           <div className="max-w-3xl mx-auto px-4 py-6">
             <p className="text-gray-600 mb-4">Suggestions on what to ask our Medical AI</p>
