@@ -58,7 +58,7 @@ export default function ChatCard() {
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col min-h-0 relative">
         {introText && (
-          <div className="text-center pt-8">
+          <div className="text-center pt-36">
             <img src="/public-health.svg" alt="logo" className="w-24 h-24 mb-6 mx-auto" />
             <h2 className="text-2xl font-medium text-gray-800 mb-16">Ask our Medical AI Anything</h2>
           </div>
