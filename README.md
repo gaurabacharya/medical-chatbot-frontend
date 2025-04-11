@@ -1,13 +1,14 @@
 # Medical AI Chatbot Frontend
 
 ## Summary
-This medical chatbot is the frontend UI that is used with a connection to the backend RAG API 
+This medical chatbot is  modern, user-friendly medical chatbot interface built with Next.js and Tailwind CSS.
+It provides a chat interface used with a connection to the backend RAG chatbot that I created previously 
 [Medical-RAG-Chatbot](https://github.com/gaurabacharya/Medical-RAG-Chatbot). In order to create 
 this UI, I first created wireframes using Figma which can be viewed [here](https://www.figma.com/design/WHk0aMjc3l8BdZxzo243TL/Medical-Chatbot-UI?node-id=0-1&t=3Cb06KrxV4k4cR6y-1). Then the 
 react website was created using TypeScript, Next.js and styled using tailwindcss. In order to 
 run this locally please follow the steps below. 
 
-A modern, user-friendly medical chatbot interface built with Next.js and Tailwind CSS.
+
 
 ## Prerequisites
 
