@@ -1,5 +1,8 @@
 # Medical AI Chatbot Frontend
 
+## Demo
+https://youtu.be/wdWfzJMIHF4
+
 ## Summary
 This medical chatbot is  modern, user-friendly medical chatbot interface built with Next.js and Tailwind CSS.
 It provides a chat interface used with a connection to the backend RAG chatbot that I created previously 
