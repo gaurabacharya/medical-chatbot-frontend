@@ -1,7 +1,7 @@
 # Medical AI Chatbot Frontend
 
 ## Demo
-https://youtu.be/wdWfzJMIHF4
+https://youtu.be/-NcgFqA0GN8
 
 ## Summary
 This medical chatbot is  modern, user-friendly medical chatbot interface built with Next.js and Tailwind CSS.
@@ -11,6 +11,7 @@ this UI, I first created wireframes using Figma which can be viewed [here](https
 react website was created using TypeScript, Next.js and styled using tailwindcss. In order to 
 run this locally please follow the steps below. 
 
+<img width="917" alt="Medical Chatbot" src="https://github.com/user-attachments/assets/753736ec-8eaa-405e-9304-806d4bfe471b" />
 
 
 ## Prerequisites
